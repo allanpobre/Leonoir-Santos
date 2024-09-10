@@ -13,6 +13,7 @@ body {
     min-height: 100vh;
     background-image: url('fundo.png'); /* Imagem ou padrão de fundo nas laterais */
     background-repeat: repeat;
+    margin: 0; /* Remove a margem padrão do body */
 }
 
 header {
@@ -20,11 +21,12 @@ header {
     padding: 20px;
     color: white;
     height: 150px;
-    position: relative;
-    display: flex;
-    align-items: center; /* Alinha verticalmente os itens */
-    justify-content: space-between; /* Espaço entre os itens */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
     box-shadow: 0px 4px 4px 0px #000;
+    z-index: 1000; /* Garante que o cabeçalho fique acima do conteúdo */
 }
 
 header img {
@@ -44,18 +46,17 @@ header div {
 
 header h1, header h3 {
     margin-left: 20px;
-}   
+}
 
-header img{
+header img {
     width: 200px;
 }
 
-h3{
+h3 {
     padding-inline: 58px;
 }
 
-
-.cardapios{
+.cardapio {
     color: #FFBA07;
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -67,7 +68,7 @@ h3{
     line-height: 130%; /* 124.8px */
 }
 
-.botao-menu, .combos{
+.botao_menu, .combo {
     color: #FFF;
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -80,7 +81,7 @@ h3{
     padding-inline: 30px;
 }
 
-.combos{
+.combo {
     padding-right: 300px;
 }
 
@@ -89,12 +90,20 @@ footer {
     padding: 20px;
     text-align: center;
     color: white;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0px -4px 4px 0px #000;
+    z-index: 1000; /* Garante que o rodapé fique acima do conteúdo */
 }
 
 .container {
     flex: 1;
     display: flex;
     justify-content: center;
+    margin-top: 150px; /* Adiciona espaço para o cabeçalho fixo */
+    margin-bottom: 60px; /* Adiciona espaço para o rodapé fixo */
 }
 
 .conteudo {
@@ -106,7 +115,32 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: calc(100vh - 120px); /* Altura total menos o cabeçalho e rodapé */
+    height: auto; /* Ajusta a altura do conteúdo conforme necessário */
+}
+
+.conteudo > div {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens */
+    margin-bottom: 20px; /* Espaçamento entre as seções */
+}
+
+.conteudo img {
+    margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+}
+
+.preco-comprar {
+    display: flex;
+    align-items: center; /* Alinha verticalmente o preço e o botão */
+    gap: 10px; /* Espaçamento entre o preço e o botão */
+}
+
+.preco-comprar h1 {
+    margin: 0; /* Remove a margem padrão do h1 */
+    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+}
+
+.preco-comprar .btn {
+    font-size: 24px; /* Ajuste o tamanho da fonte do botão conforme necessário */
 }
 
 @media (max-width: 800px) {
