@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Fugaz One";
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -54,6 +54,8 @@ header img {
 
 h3 {
     padding-inline: 58px;
+    cursor: pointer;
+
 }
 
 .cardapio {
@@ -106,27 +108,104 @@ footer {
     margin-bottom: 60px; /* Adiciona espaço para o rodapé fixo */
 }
 
-.conteudo {
+.pizzas {
     background-color: #C50202; /* Cor de fundo da área de conteúdo */
     color: white;
     padding: 20px;
     width: 100%;
     max-width: 800px;
-    display: flex;
     flex-direction: column;
+    display: flex;
     justify-content: space-between;
     height: auto; /* Ajusta a altura do conteúdo conforme necessário */
+    z-index: 3; /* Torna as seções sobrepostas */
+    top: 0;
+    left: 0;
+    height: auto; /* Ajuste a altura conforme necessário */
+    transition: z-index 0.3s ease; /* Adiciona uma transição suave */
 }
 
-.conteudo > div {
+.pizzas > div {
     display: flex;
     align-items: center; /* Alinha verticalmente os itens */
     margin-bottom: 20px; /* Espaçamento entre as seções */
 }
 
-.conteudo img {
+.pizzas img {
     margin-right: 20px; /* Espaçamento entre a imagem e o texto */
 }
+
+.bebidas {
+    background-color: #C50202; /* Cor de fundo da área de conteúdo */
+    color: white;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    flex-direction: column;
+    display:flex;
+    justify-content: space-between;
+    height: auto; /* Ajusta a altura do conteúdo conforme necessário */
+    z-index: 2;
+    top: 0;
+    left: 0;
+    height: auto; /* Ajuste a altura conforme necessário */
+    transition: z-index 0.3s ease; /* Adiciona uma transição suave */
+    position: absolute;
+    top: 150px; /* Ajuste conforme o cabeçalho */
+    left: 50%; /* Posiciona no centro da página */
+    transform: translateX(-50%); /* Centraliza o conteúdo horizontalmente */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.bebidas > div {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens */
+    margin-bottom: 20px; /* Espaçamento entre as seções */
+}
+
+.bebidas img {
+    margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+}
+
+.combos {
+    background-color: #C50202; /* Cor de fundo da área de conteúdo */
+    color: white;
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+    flex-direction: column;
+    display:flex;
+    justify-content: space-between;
+    height: auto; /* Ajusta a altura do conteúdo conforme necessário */
+    z-index: 5;
+    top: 0;
+    left: 0;
+    height: auto; /* Ajuste a altura conforme necessário */
+    transition: z-index 0.3s ease; /* Adiciona uma transição suave */
+    position: absolute;
+    top: 150px; /* Ajuste conforme o cabeçalho */
+    left: 50%; /* Posiciona no centro da página */
+    transform: translateX(-50%); /* Centraliza o conteúdo horizontalmente */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.combos > div {
+    display: flex;
+    align-items: center; /* Alinha verticalmente os itens */
+    margin-bottom: 20px; /* Espaçamento entre as seções */
+}
+
+.combos img {
+    margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+}
+
+
 
 .preco-comprar {
     display: flex;
