@@ -9,257 +9,289 @@
     <link rel="stylesheet" href="style.css">
 
     <script type="text/javascript" src="script.js"></script>
-
 </head>
 <body>
     <header>
-        <img src="logo-pizzashow-positiva.png">
-        <div>
+        <img src="logo-pizzashow-positiva.png" alt="Logo Pizza Show" id="logo" onclick="toggleMenu()">
+        <div id="menu" class="hidden">
             <h1 class="cardapio">Cardápio</h1>
-            <h3 class="botao_menu" onclick="exibirPizzas()">Pizzas</h3>
-            <h3 class="botao_menu" onclick="exibirBebidas()">Bebidas</h3>
-            <h3 class="combo" onclick="exibirCombos()">COMBOS!!!</h3>
+            <h3 class="botao_menu" id="pizzas-menu" onclick="exibirPizzas(); esconderMenu()">Pizzas</h3>
+            <h3 class="botao_menu" id="bebidas-menu" onclick="exibirBebidas(); esconderMenu()">Bebidas</h3>
+            <h3 class="botao_menu" id="combos-menu" onclick="exibirCombos(); esconderMenu()">COMBOS!!!</h3>
         </div>
-    </header>
+        <p class="texto">Clique na logo para aparecer o menu</p>
+    </header>     
     <div class="container">
+        <div class="row">
+            <!--PIZZAS-->
+            <div class="pizzas" id="pizzas">
+                <div class="titulo">PIZZAS</div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Pizza de Calabresa">
+                        <div>
+                            <h4 class="nome_pizza">Pizza de Calabresa</h4>
+                            <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$49,90</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Pizza de Calabresa')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Pizza de Calabresa')">-</button>
+                                    <div id="quantidade-Pizza-de-Calabresa">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Pizza Quatro Queijos">
+                        <div>
+                            <h4 class="nome_pizza">Pizza Quatro Queijos</h4>
+                            <p class="desc_pizza">Experimente nossa pizza quatro queijos: massa crocante, molho fresco, queijo derretido e uma combinação de mozarela, cheddar, gorgonzola e parmesão.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$54,90</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Pizza Quatro Queijos')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Pizza Quatro Queijos')">-</button>
+                                    <div id="quantidade-Pizza-Quatro-Queijos">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Pizza Marguerita">
+                        <div>
+                            <h4 class="nome_pizza">Pizza Marguerita</h4>
+                            <p class="desc_pizza">Experimente nossa pizza Marguerita: massa crocante, molho fresco, queijo derretido e tomate fresco.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$49,90</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Pizza Marguerita')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Pizza Marguerita')">-</button>
+                                    <div id="quantidade-Pizza-Marguerita">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Pizza de Frango Catupiry">
+                        <div>
+                            <h4 class="nome_pizza">Pizza de Frango Catupiry</h4>
+                            <p class="desc_pizza">Experimente nossa pizza de frango com catupiry: massa crocante, queijo cremoso e frango temperado. Delicioso!</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$57,90</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Pizza de Frango Catupiry')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Pizza de Frango Catupiry')">-</button>
+                                    <div id="quantidade-Pizza-de-Frango-Catupiry">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Pizza de Strogonoff">
+                        <div>
+                            <h4 class="nome_pizza">Pizza de Strogonoff</h4>
+                            <p class="desc_pizza">Experimente nossa pizza de strogonoff: massa crocante, molho de strogonoff cremoso e queijo derretido.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$69,99</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Pizza de Strogonoff')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Pizza de Strogonoff')">-</button>
+                                    <div id="quantidade-Pizza-de-Strogonoff">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-        <div class="pizzas" id="pizzas">
+            <!--BEBIDAS-->
+            <div class="bebidas" id="bebidas">
+                <div class="titulo">BEBIDAS</div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Vinho Seco">
+                        <div>
+                            <h4 class="nome_pizza">Vinho Seco</h4>
+                            <p class="desc_pizza">Acompanha perfeitamente qualquer pizza, nosso vinho seco é sofisticado e delicioso.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$59,99</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Vinho Seco')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Vinho Seco')">-</button>
+                                    <div id="quantidade-Vinho-Seco">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Refrigerante de Cola">
+                        <div>
+                            <h4 class="nome_pizza">Refrigerante de Cola</h4>
+                            <p class="desc_pizza">Acompanha perfeitamente qualquer pizza, nosso refrigerante de cola é refrescante e saboroso.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$14,99</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Cola')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Cola')">-</button>
+                                    <div id="quantidade-Cola">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Refrigerante de Guaraná">
+                        <div>
+                            <h4 class="nome_pizza">Refrigerante de Guaraná</h4>
+                            <p class="desc_pizza">Acompanha perfeitamente qualquer pizza, nosso refrigerante de guaraná é doce e refrescante.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$10,99</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Guaraná')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Guaraná')">-</button>
+                                    <div id="quantidade-Guaraná">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Suco de Laranja">
+                        <div>
+                            <h4 class="nome_pizza">Suco de Laranja</h4>
+                            <p class="desc_pizza">Natural e refrescante, nosso suco de laranja é a escolha perfeita para acompanhar a pizza.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$7,99</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Suco de Laranja')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Suco de Laranja')">-</button>
+                                    <div id="quantidade-Suco-de-Laranja">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="Cerveja">
+                        <div>
+                            <h4 class="nome_pizza">Cerveja</h4>
+                            <p class="desc_pizza">A cerveja perfeita para acompanhar sua pizza, gelada e saborosa.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$4,45</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('Cerveja')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('Cerveja')">-</button>
+                                    <div id="quantidade-Cerveja">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-            <div class="titulo">PIZZAS</div>
-
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">Pizza de Calabresa</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$49,90</h1>
-                        <button type="button" class="btn btn-warning" id="calabresa" onclick="comprar('Pizza de Calabresa')">+</button>
-                        <button type="button" class="btn btn-warning" id="calabresa" onclick="descomprar('Pizza de Calabresa')">-</button>
-                        <div id="quantidade-Pizza-de-Calabresa">x0</div>
+            <!--COMBOS-->
+            <div class="combos" id="combos">
+                <div class="titulo">COMBOS</div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="COMBO LARANJA">
+                        <div>
+                            <h4 class="nome_pizza">COMBO LARANJA: 1 Pizza de Calabresa e 2 Sucos de Laranja</h4>
+                            <p class="desc_pizza">Inclui uma pizza de calabresa e dois sucos de laranja, perfeito para uma refeição leve e refrescante.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$65,25</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('COMBO LARANJA')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('COMBO LARANJA')">-</button>
+                                    <div id="quantidade-COMBO-LARANJA">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
                     </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">Pizza Quatro Queijos</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$54,90</h1>
-                        <button type="button" class="btn btn-warning" id="quatro_queijos" onclick="comprar('Pizza Quatro Queijos')">+</button>
-                        <button type="button" class="btn btn-warning" id="quatro_queijos" onclick="descomprar('Pizza Quatro Queijos')">-</button>
-                        <div id="quantidade-Pizza-Quatro-Queijos">x0</div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="COMBO FAMILIA">
+                        <div>
+                            <h4 class="nome_pizza">COMBO FAMILIA: 3 Pizzas de Frango Catupiry e 6 Refrigerantes Cola</h4>
+                            <p class="desc_pizza">Ideal para famílias ou grupos, inclui três pizzas de frango catupiry e seis refrigerantes de cola.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$240,00</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('COMBO FAMILIA')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('COMBO FAMILIA')">-</button>
+                                    <div id="quantidade-COMBO-FAMILIA">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
                     </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">Pizza Marguerita</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$49,90</h1>
-                        <button type="button" class="btn btn-warning" id="marguerita" onclick="comprar('Pizza Marguerita')">+</button>
-                        <button type="button" class="btn btn-warning" id="marguerita" onclick="descomprar('Pizza Marguerita')">-</button>
-                        <div id="quantidade-Pizza-Marguerita">x0</div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="COMBO CHIQUE">
+                        <div>
+                            <h4 class="nome_pizza">COMBO CHIQUE: 2 Pizzas Marguerita e 1 Vinho Seco</h4>
+                            <p class="desc_pizza">Inclui duas pizzas Marguerita e um vinho seco, uma combinação sofisticada.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$155,25</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('COMBO CHIQUE')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('COMBO CHIQUE')">-</button>
+                                    <div id="quantidade-COMBO-CHIQUE">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
                     </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">Pizza de Frango Catupiry</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$57,90</h1>
-                        <button type="button" class="btn btn-warning" id="frango_catupiry" onclick="comprar('Pizza de Frango Catupiry')">+</button>
-                        <button type="button" class="btn btn-warning" id="frango_catupiry" onclick="descomprar('Pizza de Frango Catupiry')">-</button>
-                        <div id="quantidade-Pizza-de-Frango">x0</div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="COMBO DEZESSEIS QUEIJOS">
+                        <div>
+                            <h4 class="nome_pizza">COMBO DEZESSEIS QUEIJOS: 4 Pizzas Quatro Queijos</h4>
+                            <p class="desc_pizza">Para os amantes de queijo, inclui quatro pizzas Quatro Queijos.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$209,95</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('COMBO DEZESSEIS QUEIJOS')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('COMBO DEZESSEIS QUEIJOS')">-</button>
+                                    <div id="quantidade-COMBO-DEZESSEIS-QUEIJOS">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
                     </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza" >Pizza de Strogonoff</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$69,99</h1>
-                        <button type="button" class="btn btn-warning" id="strogonoff" onclick="comprar('Pizza de Strogonoff')">+</button>
-                        <button type="button" class="btn btn-warning" id="strogonoff" onclick="descomprar('Pizza de Strogonoff')">-</button>
-                        <div id="quantidade-Pizza-de-Strogonoff">x0</div>
+                    <div class="col-lg-6 col-md-12 mb-4">
+                        <img src="Sem título.png" class="img-fluid" alt="COMBO BIZARRO">
+                        <div>
+                            <h4 class="nome_pizza">COMBO BIZARRO: 1 Pizza de Strogonoff e 1 Cerveja</h4>
+                            <p class="desc_pizza">Uma combinação diferente e deliciosa: pizza de strogonoff com uma cerveja.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h1>R$69,69</h1>
+                                <div>
+                                    <button type="button" class="btn btn-warning" onclick="comprar('COMBO BIZARRO')">+</button>
+                                    <button type="button" class="btn btn-warning" onclick="descomprar('COMBO BIZARRO')">-</button>
+                                    <div id="quantidade-COMBO-BIZARRO">x0</div>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
                     </div>
-                    <hr>
                 </div>
             </div>
         </div>
 
-        <!--BEBIDAS-->
-
-        <div class="bebidas" id="bebidas">
-
-            <div class="titulo">BEBIDAS</div>
-
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">Vinho Seco</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$59,99</h1>
-                        <button type="button" class="btn btn-warning" id="calabresa" onclick="comprar('Vinho Seco')">+</button>
-                        <button type="button" class="btn btn-warning" id="calabresa" onclick="descomprar('Vinho Seco')">-</button>
-                        <div id="quantidade-Vinho-Seco">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">Refigerante de Cola</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$14,99</h1>
-                        <button type="button" class="btn btn-warning" id="quatro_queijos" onclick="comprar('Refrigerante de Cola')">+</button>
-                        <button type="button" class="btn btn-warning" id="quatro_queijos" onclick="descomprar('Refrigerante de Cola')">-</button>
-                        <div id="quantidade-Refrigerante-Cola">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">Refrigerante de Guaraná</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$10,99</h1>
-                        <button type="button" class="btn btn-warning" id="marguerita" onclick="comprar('Refrigerante de Guaraná')">+</button>
-                        <button type="button" class="btn btn-warning" id="marguerita" onclick="descomprar('Refrigerante de Guaraná')">-</button>
-                        <div id="quantidade-Refrigerante-Guaraná">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">Suco de Laranja</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$9,99</h1>
-                        <button type="button" class="btn btn-warning" id="frango_catupiry" onclick="comprar('Suco de Laranja')">+</button>
-                        <button type="button" class="btn btn-warning" id="frango_catupiry" onclick="descomprar('Suco de Laranja')">-</button>
-                        <div id="quantidade-Suco-Laranja">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">Cerveja</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$4,45</h1>
-                        <button type="button" class="btn btn-warning" id="strogonoff" onclick="comprar('Cerveja')">+</button>
-                        <button type="button" class="btn btn-warning" id="strogonoff" onclick="descomprar('Cerveja')">-</button>
-                        <div id="quantidade-Cerveja">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-        </div>
-
-        <!--COMBOS-->
-
-        <div class="combos" id="combos">
-
-            <div class="titulo">COMBOS</div>
-
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">COMBO LARANJA: 1 Pizza de Calabresa e 2 Sucos de Laranja</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$65,25</h1>
-                        <button type="button" class="btn btn-warning" id="calabresa" onclick="comprar('COMBO LARANJA')">+</button>
-                        <button type="button" class="btn btn-warning" id="calabresa" onclick="descomprar('COMBO LARANJA')">-</button>
-                        <div id="quantidade-Combo-Laranja">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">COMBO FAMILIA: 3 Pizzas de Frango Catupiry e 6 Refigerante Cola</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$240,00</h1>
-                        <button type="button" class="btn btn-warning" id="quatro_queijos" onclick="comprar('COMBO FAMILIA')">+</button>
-                        <button type="button" class="btn btn-warning" id="quatro_queijos" onclick="descomprar('COMBO FAMILIA')">-</button>
-                        <div id="quantidade-Combo-Familia">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">COMBO CHIQUE: 2 Pizza Marguerita e 1 Vinho Seco</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$155,25</h1>
-                        <button type="button" class="btn btn-warning" id="marguerita" onclick="comprar('COMBO CHIQUE')">+</button>
-                        <button type="button" class="btn btn-warning" id="marguerita" onclick="descomprar('COMBO CHIQUE')">-</button>
-                        <div id="quantidade-Combo-Chique">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">COMBO DEZESSEIS QUEIJOS: 4 Pizzas Quatro Queijos</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$209,95</h1>
-                        <button type="button" class="btn btn-warning" id="frango_catupiry" onclick="comprar('COMBO DEZESSEIS QUEIJOS')">+</button>
-                        <button type="button" class="btn btn-warning" id="frango_catupiry" onclick="descomprar('COMBO DEZESSEIS QUEIJOS')">-</button>
-                        <div id="quantidade-Combo-Dezesseis-Queijos">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-            <div>
-                <img src="Sem título.png" style="width:170px; height:254px;">
-                <div>
-                    <h4 class="nome_pizza">COMBO BIZARRO: 1 Pizza de Strogonoff e 1 Cerveja</h4>
-                    <p class="desc_pizza">Experimente nossa pizza de calabresa: massa crocante, molho fresco, queijo derretido e fatias picantes de calabresa. Uma explosão de sabor em cada mordida!</p>
-                    <div class="preco-comprar">
-                        <h1>R$69,69</h1>
-                        <button type="button" class="btn btn-warning" id="strogonoff" onclick="comprar('COMBO BIZARRO')">+</button>
-                        <button type="button" class="btn btn-warning" id="strogonoff" onclick="descomprar('COMBO BIZARRO')">-</button>
-                        <div id="quantidade-Combo-Bizarro">x0</div>
-                    </div>
-                    <hr>
-                </div>
-            </div>
-        </div>
+    
 
 
         <hr>
     </div>
     <footer>
-        <p id="resultado">Rodapé</p>
+        <p id="resultado">Selecione alguma opção:</p>
         <br>
         <button class="finalizar-pedido" onclick="Finalização()">Finalizar Pedido</button>
     </footer>

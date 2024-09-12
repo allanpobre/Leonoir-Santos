@@ -5,8 +5,8 @@ const selecionados = {
     'Pizza de Frango Catupiry': { quantidade: 0, preco: 57.90 },
     'Pizza de Strogonoff': { quantidade: 0, preco: 69.99 },
     'Vinho Seco': { quantidade: 0, preco: 59.99 },
-    'Refrigerante de Cola': { quantidade: 0, preco: 14.99 },
-    'Refrigerante de Guaraná': { quantidade: 0, preco: 10.99 },
+    'Cola': { quantidade: 0, preco: 14.99 },
+    'Guaraná': { quantidade: 0, preco: 10.99 },
     'Suco de Laranja': { quantidade: 0, preco: 9.99 },
     'Cerveja': { quantidade: 0, preco: 4.45 },
     'COMBO LARANJA': { quantidade: 0, preco: 65.25 },
@@ -51,22 +51,48 @@ function descomprar(nome) {
     }
 }
 
+function toggleMenu() {
+    var menu = document.getElementById('menu');
+    menu.classList.toggle('show');
+}
+
+function esconderMenu() {
+    var menu = document.getElementById('menu');
+    menu.classList.remove('show');
+}
+
+// Adiciona event listeners para os itens do menu
+document.getElementById('pizzas-menu').addEventListener('click', esconderMenu);
+document.getElementById('bebidas-menu').addEventListener('click', esconderMenu);
+document.getElementById('combos-menu').addEventListener('click', esconderMenu);
+
 
 
 function exibirBebidas() {
     document.getElementById('pizzas').style.zIndex = '1'; // Pizzas vai para trás
+    document.getElementById('pizzas').style.opacity = '0%'
     document.getElementById('bebidas').style.zIndex = '3'; // Bebidas vem para frente
+    document.getElementById('bebidas').style.opacity = '100%'
     document.getElementById('combos').style.zIndex = '1'; 
+    document.getElementById('combos').style.opacity = '0%'
+
 }
 
 function exibirPizzas() {
     document.getElementById('pizzas').style.zIndex = '3'; // Pizzas volta para frente
+    document.getElementById('pizzas').style.opacity = '100%'
     document.getElementById('bebidas').style.zIndex = '1'; // Bebidas vai para trás
+    document.getElementById('bebidas').style.opacity = '0%'
     document.getElementById('combos').style.zIndex = '1'; 
+    document.getElementById('combos').style.opacity = '0%'
 }
 
 function exibirCombos() {
     document.getElementById('pizzas').style.zIndex = '1'; // Pizzas volta para frente
+    document.getElementById('pizzas').style.opacity = '0%'
     document.getElementById('bebidas').style.zIndex = '1'; // Bebidas vai para trás
+    document.getElementById('bebidas').style.opacity = '0%'
     document.getElementById('combos').style.zIndex = '3'; 
+    document.getElementById('combos').style.opacity = '100%'
 }
+

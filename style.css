@@ -74,7 +74,7 @@ h3 {
     line-height: 130%; /* 124.8px */
 }
 
-.botao_menu, .combo {
+.botao_menu {
     color: #FFF;
     text-align: center;
     font-feature-settings: 'liga' off, 'clig' off;
@@ -87,18 +87,15 @@ h3 {
     padding-inline: 30px;
 }
 
-.combo {
-    padding-right: 300px;
-}
-
 footer {
     background-color: #C50202; /* Cor do rodapé */
-    padding: 20px;
+    padding: -2px;
     text-align: center;
     color: white;
     position: fixed;
     bottom: 0;
     left: 0;
+    height: 100px;
     width: 100%;
     box-shadow: 0px -4px 4px 0px #000;
     z-index: 1000; /* Garante que o rodapé fique acima do conteúdo */
@@ -112,7 +109,7 @@ footer {
     margin-bottom: 60px; /* Adiciona espaço para o rodapé fixo */
 }
 
-.pizzas {
+.pizzas, .bebidas, .combos {
     background-color: #C50202; /* Cor de fundo da área de conteúdo */
     color: white;
     padding: 20px;
@@ -122,92 +119,38 @@ footer {
     display: flex;
     justify-content: space-between;
     height: auto; /* Ajusta a altura do conteúdo conforme necessário */
-    z-index: 3; /* Torna as seções sobrepostas */
-    top: 0;
-    left: 0;
-    height: auto; /* Ajuste a altura conforme necessário */
+    position: absolute;
+    left: 50%; /* Posiciona no centro da página */
+    transform: translateX(-50%); /* Centraliza o conteúdo horizontalmente */
     transition: z-index 0.3s ease; /* Adiciona uma transição suave */
 }
 
-.pizzas > div {
-    display: flex;
-    align-items: center; /* Alinha verticalmente os itens */
-    margin-bottom: 20px; /* Espaçamento entre as seções */
-}
-
-.pizzas img {
-    margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+.pizzas {
+    z-index: 3; /* Torna a seção pizzas a mais sobreposta */
 }
 
 .bebidas {
-    background-color: #C50202; /* Cor de fundo da área de conteúdo */
-    color: white;
-    padding: 20px;
-    width: 100%;
-    max-width: 800px;
-    flex-direction: column;
-    display:flex;
-    justify-content: space-between;
-    height: auto; /* Ajusta a altura do conteúdo conforme necessário */
-    z-index: 2;
-    top: 0;
-    left: 0;
-    height: auto; /* Ajuste a altura conforme necessário */
-    transition: z-index 0.3s ease; /* Adiciona uma transição suave */
-    position: absolute;
+    z-index: 2; /* Torna a seção bebidas um pouco abaixo de pizzas */
     top: 150px; /* Ajuste conforme o cabeçalho */
-    left: 50%; /* Posiciona no centro da página */
-    transform: translateX(-50%); /* Centraliza o conteúdo horizontalmente */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-}
-
-.bebidas > div {
-    display: flex;
-    align-items: center; /* Alinha verticalmente os itens */
-    margin-bottom: 20px; /* Espaçamento entre as seções */
-}
-
-.bebidas img {
-    margin-right: 20px; /* Espaçamento entre a imagem e o texto */
+    opacity: 0; /* Inicialmente invisível */
 }
 
 .combos {
-    background-color: #C50202; /* Cor de fundo da área de conteúdo */
-    color: white;
-    padding: 20px;
-    width: 100%;
-    max-width: 800px;
-    flex-direction: column;
-    display:flex;
-    justify-content: space-between;
-    height: auto; /* Ajusta a altura do conteúdo conforme necessário */
-    z-index: 1;
-    top: 0;
-    left: 0;
-    height: auto; /* Ajuste a altura conforme necessário */
-    transition: z-index 0.3s ease; /* Adiciona uma transição suave */
-    position: absolute;
+    z-index: 1; /* Torna a seção combos a menos sobreposta */
     top: 150px; /* Ajuste conforme o cabeçalho */
-    left: 50%; /* Posiciona no centro da página */
-    transform: translateX(-50%); /* Centraliza o conteúdo horizontalmente */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
+    opacity: 0; /* Inicialmente invisível */
 }
 
-.combos > div {
+.pizzas > div, .bebidas > div, .combos > div {
     display: flex;
     align-items: center; /* Alinha verticalmente os itens */
     margin-bottom: 20px; /* Espaçamento entre as seções */
 }
 
-.combos img {
+.pizzas img, .bebidas img, .combos img {
     margin-right: 20px; /* Espaçamento entre a imagem e o texto */
 }
+
 
 
 
@@ -235,10 +178,67 @@ footer {
     font-size: 38px;
 }
 
+.texto{
+    font-size: 0px;
+}
+
 @media (max-width: 800px) {
-    .conteudo {
-        max-width: 100%;
-        margin: 0 10px;
+    #menu {
+        position: absolute;
+        top: 115px; /* Ajuste a distância do topo conforme necessário */
+        left: 0;
+        background-color: #C50202; /* Cor de fundo do menu */
+        width: 100%;
+        padding: 10px;
+        z-index: 1000;
+        opacity: 0; /* Inicialmente escondido */
+        visibility: hidden; /* Inicialmente escondido */
+        transform: translateY(-20px); /* Inicialmente fora da tela */
+        transition: opacity 0.7s, visibility 0.7s, transform 0.7s; /* Animação suave */
+        display: flex;
+        flex-direction: column; /* Itens do menu empilhados verticalmente */
+        align-items: center; /* Centraliza os itens horizontalmente */
+        text-align: center;
+    }
+    
+    #menu.show {
+        opacity: 1; /* Torna visível quando a classe 'show' é adicionada */
+        visibility: visible; /* Torna visível quando a classe 'show' é adicionada */
+        transform: translateY(0); /* Move o menu para a posição visível */
+        transition: opacity 0.7s, visibility 0.7s, transform 0.7s; /* Animação suave */
+    }
+
+    header img {
+        height: 115px;
+        width: auto;
+        cursor: pointer; /* Muda o cursor para pointer quando passa sobre a logo */
+        z-index: 100000;
+    }
+
+    #menu h1, #menu h3 {
+        margin: 10px 0; /* Adiciona espaçamento acima e abaixo dos itens do menu */
+        font-size: 200%;
+    }
+
+    .texto{
+        font-size: large;
+        margin: 30px;
+        margin-left: 130px;
     }
 }
+
+footer p{
+    margin-bottom: -25px;
+}
+
+.finalizar-pedido{
+    width: 350px;
+    height: 74px;
+    flex-shrink: 0;
+    border-radius: 42.5px;
+    background: #FFBA07;
+    font-size: 24px;
+}
+
+
 
